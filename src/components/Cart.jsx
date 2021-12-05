@@ -1,7 +1,9 @@
 import React from "react";
 import "./cart.css";
 import { useCart } from "react-use-cart";
+import { useNavigate } from "react-router";
 const Cart = () => {
+  const back = useNavigate();
   const {
     isEmpty,
     totalUniqueItems,
@@ -17,11 +19,24 @@ const Cart = () => {
     <section>
       <div>
         <div>
+          <button
+            style={{
+              padding: "10px 25px",
+              fontSize: "20px",
+              backgroundColor: "#86003c",
+              border: "none",
+              cursor: "pointer",
+            }}
+            onClick={() => back(-1)}
+          >
+            back
+          </button>
           <h2
             style={{
               display: "flex",
-              flexDirection: "column",
+              justifyContent: "center",
               alignItems: "center",
+              padding: "0px 10px",
             }}
           >
             Cart ({totalUniqueItems}) total Items: ({totalItems})
@@ -53,10 +68,10 @@ const Cart = () => {
                   <td>
                     <button
                       style={{
-                        backgroundColor: "yellow",
-                        color: "white",
+                        backgroundColor: "#EEEEEE",
+                        color: "black",
                         fontSize: "25px",
-                        padding: "1px 10px",
+                        padding: "1px 12px",
                         border: "none",
                         marginRight: "15px",
                         cursor: "pointer",
@@ -69,8 +84,8 @@ const Cart = () => {
                     </button>
                     <button
                       style={{
-                        backgroundColor: "yellow",
-                        color: "white",
+                        backgroundColor: "#EEEEEE",
+                        color: "black",
                         fontSize: "25px",
                         padding: "1px 10px",
                         border: "none",
@@ -85,13 +100,18 @@ const Cart = () => {
                     </button>
                     <button
                       style={{
-                        backgroundColor: "yellow",
-                        color: "white",
-                        padding: "5px 10px",
+                        backgroundColor: "#FD7014",
                         border: "none",
-                        marginRight: "20px",
+                        color: "white",
+                        padding: "10px 32px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                        display: "inline-block",
+                        fontSize: "16px",
+                        margin: "4px 2px",
                         cursor: "pointer",
                       }}
+                      onClick={() => removeItem(item.id)}
                     >
                       Remove
                     </button>
@@ -100,6 +120,28 @@ const Cart = () => {
               );
             })}
           </table>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h2 style={{ padding: "10px" }}> Total Price: {cartTotal} </h2>
+            <button
+              style={{
+                padding: "8px",
+                backgroundColor: "#FD7014",
+                border: "none",
+                color: "white",
+                cursor: "pointer",
+              }}
+              onClick={() => emptyCart()}
+            >
+              Clear Cart
+            </button>
+          </div>
         </div>
       </div>
     </section>

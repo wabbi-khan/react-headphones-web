@@ -1,33 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Cart from "./Cart";
-import Footer from "./footer";
 import "./header.css";
-// import ItemCart from "./ItemCart";
-// import product_card from "../data/product_data";
+import { useCart } from "react-use-cart";
 import MainContent from "./mainContent";
+import Footer from "./footer";
 export default function Header() {
-  const onclick = () => {
-    console.log("object");
-  };
+  const { totalItems } = useCart();
 
   return (
     <>
       <nav>
         <div className="logo">Company logo.</div>
         <ul>
-          <li>Home</li>
-          <li>Our Products</li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>Home</li>
+          </Link>
+          <Link to="/cart" style={{ textDecoration: "none" }}>
+            <li>My Cart</li>
+          </Link>
           <li>About Us</li>
           <li>Contact</li>
         </ul>
-        <div className="search">
-          <i class="fas fa-search icon"></i>
-          <Link to="/cart">
-            <span>0</span>
-            <i class="fas fa-shopping-basket icon" onClick={onclick}></i>
-          </Link>
-        </div>
+        <Link to="/cart" style={{ textDecoration: "none" }}>
+          <div className="search">
+            <span>{totalItems}</span>
+            <i class="fas fa-shopping-basket icon"></i>
+          </div>
+        </Link>
       </nav>
       <MainContent />
       <Footer />
