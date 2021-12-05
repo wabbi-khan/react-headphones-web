@@ -1,10 +1,8 @@
 import React from "react";
 import product_card from "../data/product_data";
-
-const MainContent = () => {
-  const onclick = () => {
-    console.log("object");
-  };
+import { useCart } from "react-use-cart";
+const MainContent = (props) => {
+  const { addItem } = useCart();
   console.log(product_card);
   const listItems = product_card.map((item) => (
     <div className="card" key={item.id}>
@@ -18,7 +16,7 @@ const MainContent = () => {
           {item.price}
           <span>{item.currency}</span>
         </p>
-        <div className="btn" onClick={onclick}>
+        <div className="btn" onClick={() => addItem(props)}>
           Add to cart
         </div>
       </div>
