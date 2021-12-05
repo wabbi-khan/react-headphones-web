@@ -5,7 +5,7 @@ const MainContent = (props) => {
   const { addItem } = useCart();
   console.log(product_card);
   const listItems = product_card.map((item) => (
-    <div className="card" key={item.id}>
+    <div className="card" key={item.id} item={item}>
       <div className="card_img">
         <img src={item.thumb} alt="pic" />
       </div>
@@ -16,7 +16,7 @@ const MainContent = (props) => {
           {item.price}
           <span>{item.currency}</span>
         </p>
-        <div className="btn" onClick={() => addItem(props)}>
+        <div className="btn" onClick={() => addItem(item)}>
           Add to cart
         </div>
       </div>

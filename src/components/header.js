@@ -3,6 +3,8 @@ import React from "react";
 // import Cart from "./Cart";
 import Footer from "./footer";
 import "./header.css";
+// import ItemCart from "./ItemCart";
+// import product_card from "../data/product_data";
 import MainContent from "./mainContent";
 export default function Header() {
   const onclick = () => {
