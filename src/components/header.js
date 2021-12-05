@@ -7,6 +7,7 @@ export default function Header() {
   const onclick = () => {
     console.log("object");
   };
+
   return (
     <>
       <nav>
@@ -17,14 +18,13 @@ export default function Header() {
           <li>About Us</li>
           <li>Contact</li>
         </ul>
-        <Link to="/cart">
-          <div className="search">
-            <i class="fas fa-search icon"></i>
-            <i class="fas fa-shopping-basket icon" onClick={onclick}>
-              k
-            </i>
-          </div>
-        </Link>
+        <div className="search">
+          <i class="fas fa-search icon"></i>
+          <Link to="/cart">
+            <span>0</span>
+            <i class="fas fa-shopping-basket icon" onClick={onclick}></i>
+          </Link>
+        </div>
       </nav>
       <MainContent />
       <Footer />
