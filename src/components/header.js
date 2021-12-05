@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import Cart from "./Cart";
 import Footer from "./footer";
 import "./header.css";
@@ -23,10 +23,10 @@ export default function Header() {
         </ul>
         <div className="search">
           <i class="fas fa-search icon"></i>
-          {/* <Link to="/cart"> */}
-          <span>0</span>
-          <i class="fas fa-shopping-basket icon" onClick={onclick}></i>
-          {/* </Link> */}
+          <Link to="/cart">
+            <span>0</span>
+            <i class="fas fa-shopping-basket icon" onClick={onclick}></i>
+          </Link>
         </div>
       </nav>
       <MainContent />
