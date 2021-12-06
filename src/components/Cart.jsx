@@ -140,7 +140,7 @@ const Cart = () => {
               }}
               onClick={() => emptyCart()}
             >
-              Pay Now
+              PAY NOW
             </button>
           </div>
         </div>
