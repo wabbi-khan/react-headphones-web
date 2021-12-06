@@ -131,15 +131,16 @@ const Cart = () => {
             <h2 style={{ padding: "10px" }}> Total Price: {cartTotal} </h2>
             <button
               style={{
-                padding: "8px",
+                padding: "15px 30px",
                 backgroundColor: "#FD7014",
                 border: "none",
+                fontSize: "15px",
                 color: "white",
                 cursor: "pointer",
               }}
               onClick={() => emptyCart()}
             >
-              Clear Cart
+              Pay Now
             </button>
           </div>
         </div>
